@@ -1,0 +1,13 @@
+{
+  "name": "cra-template-oslab",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "main": "template.json",
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
