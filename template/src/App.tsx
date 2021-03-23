@@ -1,19 +1,22 @@
-import React from "react";
 import { Route } from "react-router-dom";
-import Header from "./components/Header";
 import HomePage from "./HomePage";
-import LoginPage from "./LoginPage";
-import RegisterPage from "./RegisterPage";
+import SignInPage from "./auth/SignInPage";
+import RegisterPage from "./auth/RegisterPage";
+import ResetPasswordPage from "./auth/ResetPasswordPage";
+import PrivacyPolicyPage from "./auth/PrivacyPolicyPage";
+import UserAgreementPage from "./auth/UserAgreementPage";
+import ResetPasswordConfirmPage from "./auth/ResetPasswordConfirmPage";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <Header />
+    <>
       <Route path="/" exact component={HomePage} />
-      <Route path="/login" component={LoginPage} />
+      <Route path="/sign-in" component={SignInPage} />
       <Route path="/register" component={RegisterPage} />
-    </div>
+      <Route path="/reset-your-password" component={ResetPasswordPage} />
+      <Route path="/reset-password-confirm" component={ResetPasswordConfirmPage} />
+      <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+      <Route path="/user-agreement" component={UserAgreementPage} />
+    </>
   );
 }
-
-export default App;

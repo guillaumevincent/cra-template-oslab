@@ -1,10 +1,9 @@
-import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import App from "./App";
 import { createMemoryHistory, MemoryHistory } from "history";
 import { Router } from "react-router-dom";
+import App from "./App";
 
-export const InitApp = ({
+export const InitialiserLApplication = ({
   history = createMemoryHistory(),
 }: {
   history?: MemoryHistory;
@@ -16,14 +15,14 @@ export const InitApp = ({
   );
 };
 
-test("routing pages unauth", async () => {
+test("la navigation sur les pages non authentifiées", async () => {
   const history = createMemoryHistory();
-  render(<InitApp history={history} />);
+  render(<InitialiserLApplication history={history} />);
   expect(history.location.pathname).toBe("/");
-  fireEvent.click(screen.queryByText(/login/i) as HTMLLinkElement);
-  expect(history.location.pathname).toBe("/login");
-  fireEvent.click(screen.queryByText(/register/i) as HTMLLinkElement);
-  expect(history.location.pathname).toBe("/register");
-  fireEvent.click(screen.queryByText(/home/i) as HTMLLinkElement);
+  fireEvent.click(screen.queryByText("Connexion") as HTMLLinkElement);
+  expect(history.location.pathname).toBe("/connexion");
+  fireEvent.click(screen.queryByText("S'inscrire") as HTMLLinkElement);
+  expect(history.location.pathname).toBe("/sinscrire");
+  fireEvent.click(screen.queryByText("Accueil") as HTMLLinkElement);
   expect(history.location.pathname).toBe("/");
 });
