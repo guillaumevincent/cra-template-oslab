@@ -1,5 +1,5 @@
 import UnregisteredPage from "../layout/UnregisteredPage";
 
 export default function UserAgreementPage() {
-  return <UnregisteredPage>UserAgreementPage</UnregisteredPage>
+  return <UnregisteredPage>UserAgreementPage</UnregisteredPage>;
 }

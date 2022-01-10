@@ -131,7 +131,7 @@ export default function RegisterPage() {
               to="/sign-in"
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >
-              Sign in
+              Sign In
             </Link>
           </div>
         </div>

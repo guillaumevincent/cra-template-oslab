@@ -1,3 +1,5 @@
+import UnregisteredPage from "./layout/UnregisteredPage";
+
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return <UnregisteredPage>HomePage</UnregisteredPage>;
 }

@@ -1,28 +1,22 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { createMemoryHistory, MemoryHistory } from "history";
-import { Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
-export const InitialiserLApplication = ({
-  history = createMemoryHistory(),
-}: {
-  history?: MemoryHistory;
-}) => {
-  return (
-    <Router history={history}>
+test("Navigation between unauth pages", async () => {
+  render(
+    <BrowserRouter>
       <App />
-    </Router>
+    </BrowserRouter>
   );
-};
-
-test("la navigation sur les pages non authentifiées", async () => {
-  const history = createMemoryHistory();
-  render(<InitialiserLApplication history={history} />);
-  expect(history.location.pathname).toBe("/");
-  fireEvent.click(screen.queryByText("Connexion") as HTMLLinkElement);
-  expect(history.location.pathname).toBe("/connexion");
-  fireEvent.click(screen.queryByText("S'inscrire") as HTMLLinkElement);
-  expect(history.location.pathname).toBe("/sinscrire");
-  fireEvent.click(screen.queryByText("Accueil") as HTMLLinkElement);
-  expect(history.location.pathname).toBe("/");
+  expect(window.location.pathname).toBe("/");
+  fireEvent.click(screen.queryByText("Sign In") as HTMLLinkElement);
+  expect(window.location.pathname).toBe("/sign-in");
+  fireEvent.click(screen.queryByText("Register") as HTMLLinkElement);
+  expect(window.location.pathname).toBe("/register");
+  fireEvent.click(screen.queryByText("Sign In") as HTMLLinkElement);
+  expect(window.location.pathname).toBe("/sign-in");
+  fireEvent.click(
+    screen.queryByText("Forgot your password?") as HTMLLinkElement
+  );
+  expect(window.location.pathname).toBe("/reset-your-password");
 });
